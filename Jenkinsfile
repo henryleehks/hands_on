@@ -23,5 +23,15 @@ pipeline {
                 }
             }
         }
+
+        stage('Deploy') {
+            steps {
+                sh '''
+                    sudo mkdir -p /opt/spring-boot-hello-world-main/henry
+                    sudo cp spring-boot-hello-world-main/target/*.jar \
+                            /opt/spring-boot-hello-world-main/henry/
+                '''
+            }
+        }
     }
 }
