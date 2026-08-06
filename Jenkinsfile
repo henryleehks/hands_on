@@ -24,12 +24,11 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Copy JAR') {
             steps {
                 sh '''
-                    sudo mkdir -p /opt/spring-boot-hello-world-main/henry
-                    sudo cp spring-boot-hello-world-main/target/*.jar \
-                            /opt/spring-boot-hello-world-main/henry/
+                    mkdir -p spring-boot-hello-world-main/henry
+                    cp spring-boot-hello-world-main/target/*.jar /tmp/henry
                 '''
             }
         }
