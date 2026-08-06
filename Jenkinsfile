@@ -2,9 +2,25 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Checkout') {
             steps {
-                echo 'Hello World'
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                dir('spring-boot-hello-world-main') {
+                    sh 'mvn clean install'
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                dir('spring-boot-hello-world-main') {
+                    sh 'mvn test'
+                }
             }
         }
     }
