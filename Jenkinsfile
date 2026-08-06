@@ -27,8 +27,8 @@ pipeline {
         stage('Copy JAR') {
             steps {
                 sh '''
-                    mkdir -p spring-boot-hello-world-main/henry
-                    cp spring-boot-hello-world-main/target/*.jar /tmp/henry
+                    mkdir -p /tmp/henry
+                    cp $workspace/spring-boot-hello-world-main/target/*.jar /tmp/henry
                 '''
             }
         }
