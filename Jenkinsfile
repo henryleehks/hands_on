@@ -28,7 +28,7 @@ pipeline {
             steps {
                 sh '''
                     mkdir -p /tmp/henry
-                    cp ${workspace}/spring-boot-hello-world-main/target/*.jar /tmp/henry
+                    cp ${WORKSPACE}/spring-boot-hello-world-main/target/*.jar /tmp/henry
                 '''
             }
         }
